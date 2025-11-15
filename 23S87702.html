@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Étudiant - Connexion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --danger: #f72585;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2a3c7f, #4a5fcc);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .main-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .welcome-container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: none;
+        }
+        
+        .card-body {
+            padding: 2.5rem;
+        }
+        
+        .form-control {
+            border-radius: 12px;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid #e1e5ee;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            padding: 0.875rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(67, 97, 238, 0.3);
+        }
+        
+        .error-message {
+            color: var(--danger);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .student-name-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .name-part {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #f0f3ff, #e1e8ff);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            margin: 0 0.5rem;
+            text-align: center;
+            min-width: 180px;
+        }
+        
+        .fade-out {
+            opacity: 0;
+            transform: translateY(-30px) scale(0.9);
+        }
+        
+        .matricule {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(114, 9, 183, 0.3);
+            animation: glow 2s infinite alternate;
+            margin: 2rem 0;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(114, 9, 183, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(114, 9, 183, 0.5), 0 0 30px rgba(114, 9, 183, 0.3);
+            }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .btn-logout {
+            background: linear-gradient(90deg, var(--danger), #b5179e);
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+        
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(247, 37, 133, 0.3);
+        }
+        
+        .welcome-title {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+        
+        .level-info {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .student-name-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .name-part {
+                font-size: 1.8rem;
+                min-width: 220px;
+                margin: 0;
+            }
+            
+            .matricule {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+            
+            .level-info {
+                font-size: 1.1rem;
+            }
+            
+            .card-body {
+                padding: 2rem;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 992px) {
+            .name-part {
+                font-size: 1.8rem;
+                min-width: 160px;
+                margin: 0 0.3rem;
+            }
+            
+            .main-container {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .name-part {
+                font-size: 1.5rem;
+                min-width: 200px;
+                padding: 0.8rem 1rem;
+            }
+            
+            .matricule {
+                font-size: 1.4rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.6rem;
+            }
+            
+            .card-body {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .name-part {
+                font-size: 1.3rem;
+                min-width: 180px;
+            }
+            
+            .matricule {
+                font-size: 1.2rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.4rem;
+            }
+            
+            body {
+                padding: 0.5rem;
+            }
+        }
+        
+        /* Centrage parfait pour les grands écrans */
+        @media (min-width: 1200px) {
+            .main-container {
+                padding: 3rem;
+            }
+        }
+        
+        @media (min-width: 1400px) {
+            .main-container {
+                padding: 4rem;
+            }
+        }
+        
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Assurer le centrage absolu */
+        .page-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Éléments flottants pour l'arrière-plan -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Conteneur principal pour le centrage -->
+    <div class="main-container">
+        <!-- Page de connexion -->
+        <div id="loginPage" class="page-center">
+            <div class="card login-container">
+                <div class="card-header">
+                    <h2><i class="fas fa-graduation-cap me-2"></i>Connexion Étudiant</h2>
+                </div>
+                <div class="card-body">
+                    <form id="loginForm">
+                        <div class="mb-4">
+                            <label for="login" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="login" required>
+                            <div id="loginError" class="error-message">
+                                <i class="fas fa-exclamation-circle me-1"></i> Nom d'utilisateur incorrect
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="password" required>
+                            <div id="passwordError" class="error-message">
+                                <i class="fas fa-exclamation-circle me-1"></i> Mot de passe incorrect
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">
+                            <i class="fas fa-sign-in-alt me-2"></i> Se connecter
+                        </button>
+                    </form>
+                    
+                    <div class="mt-4 p-3 bg-light rounded">
+                        <p class="small mb-0 text-center">
+                            <strong>Identifiants de test :</strong><br>
+                            Nom d'utilisateur: <strong>MOI</strong><br>
+                            Mot de passe: <strong>moi-aussi</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page d'accueil -->
+        <div id="homePage" class="page-center hidden">
+            <div class="card welcome-container">
+                <div class="card-header">
+                    <h1> Mon Espace Personnel</h1>
+                </div>
+                <div class="card-body">
+                    <h2 class="welcome-title">Bienvenue dans mon espace étudiant</h2>
+                    
+                    <div class="student-name-container" id="studentNameContainer">
+                        <div class="name-part" id="namePart1">NKONGA</div>
+                        <div class="name-part" id="namePart2">TADJUIDJE</div>
+                        <div class="name-part" id="namePart3">MOREL</div>
+                    </div>
+                    
+                    <div class="matricule" id="matricule">23S87702</div>
+                    
+                    <p class="level-info">Niveau d'étude : L2 Informatique</p>
+                    
+                    <button id="logoutBtn" class="btn btn-logout">
+                        <i class="fas fa-sign-out-alt me-2"></i> Se déconnecter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Création des éléments flottants
+        const floatingContainer = document.getElementById('floatingElements');
+        for (let i = 0; i < 12; i++) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element');
+            
+            const size = Math.random() * 80 + 20;
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.top = `${Math.random() * 100}%`;
+            
+            element.style.animationDuration = `${Math.random() * 20 + 10}s`;
+            element.style.animationDelay = `${Math.random() * 5}s`;
+            
+            floatingContainer.appendChild(element);
+        }
+
+        // Variables globales
+        const correctLogin = "MOI";
+        const correctPassword = "moi-aussi";
+        
+        // Références aux éléments DOM
+        const loginPage = document.getElementById('loginPage');
+        const homePage = document.getElementById('homePage');
+        const loginForm = document.getElementById('loginForm');
+        const loginInput = document.getElementById('login');
+        const passwordInput = document.getElementById('password');
+        const loginError = document.getElementById('loginError');
+        const passwordError = document.getElementById('passwordError');
+        const namePart1 = document.getElementById('namePart1');
+        const namePart2 = document.getElementById('namePart2');
+        const namePart3 = document.getElementById('namePart3');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Gestion de la soumission du formulaire
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Réinitialiser les messages d'erreur
+            loginError.style.display = 'none';
+            passwordError.style.display = 'none';
+            
+            // Valider les informations
+            const login = loginInput.value.trim();
+            const password = passwordInput.value.trim();
+            
+            let isValid = true;
+            
+            if (login !== correctLogin) {
+                loginError.style.display = 'block';
+                isValid = false;
+            }
+            
+            if (password !== correctPassword) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // Si les informations sont correctes, afficher la page d'accueil
+            if (isValid) {
+                loginPage.classList.add('hidden');
+                homePage.classList.remove('hidden');
+                animateStudentName();
+            }
+        });
+        
+        // Animation du nom de l'étudiant
+        function animateStudentName() {
+            const nameParts = [namePart1, namePart2, namePart3];
+            let currentIndex = 0;
+            
+            function fadeOutPart() {
+                if (currentIndex < nameParts.length) {
+                    nameParts[currentIndex].classList.add('fade-out');
+                    currentIndex++;
+                    setTimeout(fadeOutPart, 300);
+                } else {
+                    // Réinitialiser après un délai
+                    setTimeout(() => {
+                        nameParts.forEach(part => part.classList.remove('fade-out'));
+                        currentIndex = 0;
+                        setTimeout(fadeOutPart, 2000);
+                    }, 1000);
+                }
+            }
+            
+            // Démarrer l'animation après un court délai
+            setTimeout(fadeOutPart, 1000);
+        }
+        
+        // Gestion de la déconnexion
+        logoutBtn.addEventListener('click', function() {
+            homePage.classList.add('hidden');
+            loginPage.classList.remove('hidden');
+            
+            // Réinitialiser le formulaire
+            loginForm.reset();
+        });
+    </script>
+</body>
+</html>
