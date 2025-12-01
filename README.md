@@ -46,7 +46,7 @@ A passionate fullstack developer, devops and machine learning
 
 ⚡ Where to find me
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/NkongaMorel/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/Morel.Nkonga/)
 
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp)](https://wa.me/+237686865451)
