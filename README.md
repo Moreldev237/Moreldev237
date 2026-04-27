@@ -1,7 +1,7 @@
 
 Hi 👋, I'm NKONGA MOREL
 
-A passionate fullstack developer, devops and machine learning
+A passionate Backend  developer, devops and machine learning
 
 
 🚀 Languages and Tools I Use
