@@ -4,7 +4,7 @@ Hi 👋, I'm NKONGA MOREL
 A passionate fullstack developer, devops and machine learning
 
 
-🚀 Languages and Tools I Use
+ Languages and Tools I Use
 
 <p align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="JavaScript"/>
@@ -50,3 +50,5 @@ A passionate fullstack developer, devops and machine learning
 
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp)](https://wa.me/+237686865451)
+
+[![portfolio](https://img.shields.io/badge/Portfolio-Visit-blue?style=flat&logo=github)](https://portfolio-six-kappa-26.vercel.app/)
