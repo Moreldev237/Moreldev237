@@ -47,4 +47,4 @@ A passionate Backend  developer, devops and machine learning
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp)](https://wa.me/+237686865451)
 
-[![portfolio](https://img.shields.io/badge/Portfolio-Visit-blue?style=flat&logo=github)](https://portfolio-six-kappa-26.vercel.app/)
+[![portfolio](https://img.shields.io/badge/Portfolio-Visit-blue?style=flat&logo=github)](https://moreldev237.vercel.app/)
