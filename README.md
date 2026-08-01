@@ -1,8 +1,7 @@
 
 Hi 👋, I'm NKONGA MOREL
 
-A passionate Backend  developer, devops and machine learning
-
+Passionate Backend Developer & DevOps Engineer focused on building scalable and reliable systems
 
  Languages and Tools I Use
 
